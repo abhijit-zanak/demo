@@ -1,5 +1,6 @@
-name: 'CI'     # Name of the action.
-on: [push] 
+# .github/workflows/pipeline.yml
+name: 'Deploy'     # Name of the action.
+on: ['deployment'] # Listen for deployment events.
 
 jobs:
   deployment:
@@ -7,7 +8,11 @@ jobs:
     steps:
     - name: 'Checkout'  # Checkout the repository code.
       uses: 'actions/checkout@v1'
-    - name: list command output  
-      run: |
-        ls -l
-        echo 'abhijit'
+
+    - name: 'Deploy'
+      uses: 'abhijit-zanak/demo@master'
+      with:
+        token: '${{ github.token }}'
+        chart: 'app'
+      env:
+        KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
