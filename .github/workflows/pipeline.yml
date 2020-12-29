@@ -1,18 +1,11 @@
-# .github/workflows/pipeline.yml
-name: 'Deploy'     # Name of the action.
-on: ['deployment'] # Listen for deployment events.
+name: 'CI'     # Name of the action.
+on: [push] 
 
 jobs:
   deployment:
     runs-on: 'ubuntu-latest'
     steps:
     - name: 'Checkout'  # Checkout the repository code.
-      uses: 'abhijit-zanak/demo@v1'
-
-    - name: 'Deploy'
-      uses: 'abhijit-zanak/demo@master'
-      with:
-        token: '${{ github.token }}'
-        chart: 'app'
-      env:
-        KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
+      uses: 'actions/checkout@v1'
+      run: |
+        ls -l
