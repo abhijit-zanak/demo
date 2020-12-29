@@ -8,4 +8,4 @@ jobs:
     - name: 'Checkout'  # Checkout the repository code.
       uses: 'actions/checkout@v1'
       run: |
-        ls -l
+        echo 'abhijit'
