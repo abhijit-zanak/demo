@@ -10,7 +10,7 @@ jobs:
       uses: 'abhijit-zanak/demo@v1'
 
     - name: 'Deploy'
-      uses: 'deliverybot/helm@master'
+      uses: 'abhijit-zanak/demo@v1@master'
       with:
         token: '${{ github.token }}'
         chart: 'app'
