@@ -7,5 +7,7 @@ jobs:
     steps:
     - name: 'Checkout'  # Checkout the repository code.
       uses: 'actions/checkout@v1'
+    - name: list command output  
       run: |
+        ls -l
         echo 'abhijit'
